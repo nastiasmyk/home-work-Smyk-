@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!-- Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
+обнуляющую отcчет. Также попробуйте изменить код так чтобы отчет начинался с 30 и заканчивался на 1. -->
+    <input type="button" value="Продолжить/Начать отсчет" onclick="myCounter()">
+    <input type="button" value="Остановить отсчет" onclick="stop()">
+    <input type="button" value="Обнулить" onclick="reset()">
+    <div class="counter"></div>
+    <script>
+        var counter = 0;
+        var div = document.querySelector('.counter');
+        div.insertAdjacentText('afterbegin', counter);
+
+        var interval;
+        interval = setInterval(change, 1000);
+
+        function myCounter() {
+            interval = setInterval(change, 1000);
+        }
+
+        function change() {
+            if (counter < 30) {
+                counter++;
+                div.innerHTML = counter;
+            } else {
+                stop();
+            }
+        }
+
+        function stop() {
+            clearInterval(interval);
+        }
+
+        function reset() {
+            counter = 0;
+            clearInterval(interval);
+            div.innerHTML = counter;
+        }
+
+        // var counter = 30;
+        // var div = document.querySelector('.counter');
+        // div.insertAdjacentText('afterbegin', counter);
+
+        // var interval;
+        // interval = setInterval(change, 1000);
+
+        // function myCounter() {
+        //     interval = setInterval(change, 1000);
+        // }
+
+        // function change() {
+        //     if (counter > 0) {
+        //         counter--;
+        //         div.innerHTML = counter;
+        //     } else {
+        //         stop();
+        //     }
+        // }
+
+        // function stop() {
+        //     clearInterval(interval);
+        // }
+
+        // function reset() {
+        //     counter = 30;
+        //     clearInterval(interval);
+        //     div.innerHTML = counter;
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. Отобразите каждое отдельное слово в виде списка ul li. 
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. 
+    Найдите все буквы "а" их количество в модальное окно. 
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        var inputTeg = document.querySelector('input');
+        inputTeg.insertAdjacentHTML("afterEnd", "<br><input type='button', onclick ='getValue()' value = 'пробовать'>");
+        document.querySelector('[type="button"]').insertAdjacentHTML("afterEnd", "<ul class='list'></ul>");
+
+        function getValue() {
+            var inputValue = document.querySelector('[type="text"]').value;
+            var searchA = new RegExp('а', 'g');
+            var resultA = inputValue.match(searchA);
+            alert(resultA.length + ' буков "а"');
+            var list = document.querySelector('.list');
+            var words = inputValue.split(" ");
+            for (var i = 0; i < words.length; i++) {
+                if (i == 0) {
+                    words[i] = words[i].toUpperCase();
+                    list.insertAdjacentHTML("beforeEnd", '<li>' + words[i] + '</li>');
+                } else if (i == words.length - 1 || i == words.length - 2) {
+                    words[i] = words[i].toLowerCase();
+                    list.insertAdjacentHTML("beforeEnd", '<li>' + words[i] + '</li>');
+                } else {
+                    list.insertAdjacentHTML("beforeEnd", '<li>' + words[i] + '</li>');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
