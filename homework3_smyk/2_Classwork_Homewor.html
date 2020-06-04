@@ -21,9 +21,18 @@
 
         function getValue() {
             var inputValue = document.querySelector('[type="text"]').value;
-            var searchA = new RegExp('а', 'g');
-            var resultA = inputValue.match(searchA);
-            alert(resultA.length + ' буков "а"');
+            var res = 0;
+            var searchAR = new RegExp('а', 'g');
+            var resultAR = inputValue.match(searchAR);
+            if (resultAR) {
+                res += parseInt(resultAR.length);
+            }
+            var searchAA = new RegExp('a', 'g');
+            var resultAA = inputValue.match(searchAA);
+            if (resultAA) {
+                res += parseInt(resultAA.length);
+            }
+            alert(res + ' буков "а"');
             var list = document.querySelector('.list');
             var words = inputValue.split(" ");
             for (var i = 0; i < words.length; i++) {
