@@ -1,0 +1,34 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Наследование</title>
+    <script>
+        function Man(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+        }
+
+        function Soldier(shoot) {
+            this.shoot = shoot;
+        }
+
+        function Doctor(cure) {
+            this.cure = cure;
+        }
+        Soldier.prototype = new Man(1, 1, 1);
+        Doctor.prototype = new Man(2, 2, 2);
+        var soldier = new Soldier(1);
+        var doctor = new Doctor(2);
+        console.log(soldier);
+        console.log(doctor);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

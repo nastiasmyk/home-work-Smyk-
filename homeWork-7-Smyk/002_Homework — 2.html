@@ -1,0 +1,44 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Полиморфизм</title>
+    <script>
+        function Cure() {
+            this.cure = function() {
+                console.log('This is ' + this.name + ' he can ' + this.method);
+            }
+        }
+
+        function Doctor(walk, eat, drink, name, method) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.name = name;
+            this.method = method
+        }
+        Doctor.prototype = new Cure();
+
+        function Dentist() {}
+
+        function Surgeon() {}
+
+        Dentist.prototype = new Doctor(1, 1, 1, 'Dentist', 'treat teeth');
+        Surgeon.prototype = new Doctor(2, 2, 2, 'Surgeon', 'preform operations');
+
+        var doctor = new Doctor(3, 3, 3, 'Doctor', 'cure');
+        var dentist = new Dentist();
+        var surgeon = new Surgeon();
+
+        doctor.cure();
+        dentist.cure();
+        surgeon.cure();
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
