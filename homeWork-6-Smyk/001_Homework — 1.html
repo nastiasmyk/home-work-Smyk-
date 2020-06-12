@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork</title>
+    <style>
+        .text {
+            width: 200px;
+        }
+        
+        input {
+            position: fixed;
+            left: 220px;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    1. back to top button; 
+    2. drag and drop;
+	3. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна.
+    -->
+    <div class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque qui alias necessitatibus tenetur repudiandae suscipit harum quis non architecto sit ratione repellendus illum porro, nobis sequi fugit dolore deleniti amet. Lorem ipsum dolor sit, amet
+        consectetur adipisicing elit. Aliquam ipsum similique officia dicta libero molestiae ipsam voluptatibus, recusandae eos voluptatem eum voluptatum non sequi dolorem aliquid dolore, odit officiis ut est esse deserunt earum distinctio laboriosam.
+        Cupiditate, totam aut aliquid asperiores, alias qui placeat aspernatur corporis dicta ipsum debitis quibusdam harum quisquam fuga velit expedita, architecto blanditiis? Eligendi esse perspiciatis vero est minima repellat architecto nobis nemo
+        reiciendis et consequuntur dolor libero fugiat atque voluptatum quae, qui perferendis aperiam provident soluta aut a natus autem? Qui delectus voluptas similique? Aut laudantium assumenda nam eius atque accusamus eligendi laborum laboriosam aliquid
+        ratione rem quaerat fugiat alias numquam officia architecto beatae veritatis ex eaque necessitatibus, officiis dicta asperiores. Quod, ad voluptatibus debitis voluptate minima quos rerum, similique totam, ducimus recusandae nisi alias doloremque
+        facilis nostrum iste corrupti. Pariatur officia iusto veniam iste eligendi dolorum odio vero tempora quaerat quas quidem autem, inventore, expedita unde enim, hic maxime rerum possimus error quis! Deserunt similique expedita rerum magni dicta
+    </div>
+    <input type="button" value=" back to top">
+
+    <script>
+        var buttonToTop = document.querySelector("input");
+        buttonToTop.addEventListener('click', scrollToTop);
+
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+
+        }
+    </script>
+</body>
+<!-- //return false; // отмена отправк -->
+
+</html>

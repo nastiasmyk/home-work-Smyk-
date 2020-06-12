@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork</title>
+    <style>
+        .wrap {
+            width: 100vw;
+            height: 300px;
+        }
+        
+        .moveRight {
+            position: fixed;
+            left: 0px;
+            top: 50px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: rgb(135, 226, 15);
+        }
+        
+        .stopButton {
+            position: absolute;
+            top: 170px;
+            left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    1. back to top button; 
+    2. drag and drop;
+	3. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна.
+    -->
+
+    <div class="wrap">
+        <div class="moveRight"></div>
+        <input type="button" value="Остановить" class="stopButton">
+    </div>
+
+
+    <script>
+        var moveRight = document.querySelector(".moveRight");
+        var area = document.querySelector('.wrap')
+        var areaBounding = area.getBoundingClientRect();
+        var start = areaBounding.left;
+        var end = areaBounding.right;
+        moveRight.addEventListener('click', moveRightFoo);
+        var Interval;
+
+        function moveRightFoo() {
+            clearInterval(Interval);
+            Interval = setInterval(moveRightInterval, 1000);
+
+        }
+        var currentPosition = start;
+
+        function moveRightInterval() {
+            if (currentPosition >= end) {
+                currentPosition = start;
+            } else {
+                currentPosition += 100;
+            }
+            moveRight.style.left = currentPosition + 'px';
+        }
+
+        var stopButton = document.querySelector('.stopButton');
+        stopButton.addEventListener('click', myStopFunction)
+
+        function myStopFunction() {
+            clearInterval(Interval);
+        }
+    </script>
+</body>
+<!-- //return false; // отмена отправк -->
+
+</html>

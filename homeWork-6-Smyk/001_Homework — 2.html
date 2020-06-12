@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork</title>
+    <style>
+        .dragAndDrop {
+            position: fixed;
+            background-color: rgba(20, 199, 190);
+            height: 40px;
+            width: 40px;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    1. back to top button; 
+    2. drag and drop;
+	3. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна.
+    -->
+
+    <div class="dragAndDrop"></div>
+
+
+
+    <script>
+        var dragAndDrop = document.querySelector(".dragAndDrop");
+
+        function moveBlock(e) {
+            dragAndDrop.style.left = e.clientX + 'px';
+            dragAndDrop.style.top = e.clientY + 'px';
+        }
+
+        // dragAndDrop.onmousedown = function(e) {
+        //     window.onmousemove = function(e) {
+        //         moveBlock(e);
+        //     }
+        //     dragAndDrop.onmouseup = function(e) {
+        //         moveBlock(e);
+        //     }
+        // }
+        dragAndDrop.addEventListener('mousedown', mouseDown);
+
+        function mouseDown() {
+            window.onmousemove = function(e) {
+                moveBlock(e);
+            }
+        }
+        dragAndDrop.addEventListener('mouseup', mouseUP);
+
+        function mouseUP(e) {
+            window.onmousemove = null;
+            dragAndDrop.onmouseup = null;
+        }
+    </script>
+</body>
+<!-- //return false; // отмена отправк -->
+
+</html>
